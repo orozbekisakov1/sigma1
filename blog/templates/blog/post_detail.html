@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+
+
+
+    <!-- Featured blog post-->
+    <div class="card mb-4">
+        <a href="#!"><img class="card-img-top" src="{{ post.image.url }}"  alt="..." /></a><br><br>
+        <div class="card-body">
+
+            <div class="small text-muted">
+                <img class="rounded-circle article" src="{{ object.author.profile.image.url }}" height="100" width="100" style="border-radius: 50%" alt="">
+                {{ object.post_date|date:"F d, Y "}}
+                <div class="small text-muted mx-3">{{ post.author.username }}</div>
+                <div class="mt-2">
+
+                        </form>
+                </div>
+            </div>
+
+            <h2 class="card-title">{{ object.title}}</h2>
+            <p class="card-text">{{ object.content }}</p>
+            <br>
+            <a href="{% url 'post-update' post.pk %}"><button style="background-color: #CAE1FF">Update</button></a>
+
+             <a href="{% url 'post-delete' post.pk %}"><button style="background-color: #FFF8DC">Delete</button></a>
+
+
+        </div>
+    </div>
+
+{% endblock %}
